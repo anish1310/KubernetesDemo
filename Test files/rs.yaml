@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myrs1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      env: prod
+  template:
+    metadata:
+      name: rspod
+      labels:
+        env: prod
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.16
